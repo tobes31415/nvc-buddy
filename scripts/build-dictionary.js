@@ -22,6 +22,8 @@ function listFiles(folderPath) {
 }
 
 function readDictionaryDirectory(folderPath) {
+  // English Dictionary was found here, it's big ~30Mb
+  // https://uc9c16915d1918ee4ee5b09732e6.dl.dropboxusercontent.com/cd/0/get/Bhsa1MnlVaKIdB0hX9ssflW3Gug_3dtu446lMJM4_QbW-R_VijxWDb7-Dcgvi6KZRdP56zJOz4KkA7ud1aBA2SoPThJBmc6JOjs4B61MSBICzD8n3dafTM4G5dBe_MhcCzRQxY27dDEdR5EALzA1nOiAtf34i-h90hQSgQd4dSpiXw/file?dl=1#
   const files = listFiles(folderPath);
   const result = new Map();
 
