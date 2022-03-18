@@ -1,7 +1,16 @@
-console.log("hello world");
+import { DI } from "@tobes31415/dependency-injection";
+import { NvcTaggerService } from "./services/nvc-tagger";
 
-const abc = 123;
+const lookupSvc = DI.resolve(NvcTaggerService);
+(globalThis as any).lookupSvc = lookupSvc;
 
-if (abc === 123) {
-  console.log("123");
-}
+(globalThis as any).updateTags = () => {
+  const tagsSection =
+    document.querySelector<HTMLDivElement>("#tags") || undefined;
+  const userInput = document.querySelector<HTMLTextAreaElement>("#userText");
+  if (tagsSection && userInput) {
+    tagsSection.innerHTML = lookupSvc.tag(userInput.value);
+  }
+};
+
+setTimeout((globalThis as any).updateTags);
