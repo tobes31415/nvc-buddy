@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "format": "prettier --write src/",
     "start": "parcel src/index.html",
-    "build": "run-s eslint pb:clean pb:compile",
+    "build": "run-s eslint build:clean build:compile",
     "build:compile": "parcel build src/index.html",
     "build:clean": "del-cli dist/**",
     "eslint": "eslint \"src/**.ts\" --fix",
