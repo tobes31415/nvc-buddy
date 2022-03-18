@@ -1,8 +1,11 @@
 body {
   background-color: wheat;
-
+  max-width: 100vw;
+  margin: 0;
+  padding: 5px;
   textarea {
     width: 400px;
+    max-width: calc(100% - 10px);
     height: 200px;
   }
 }
