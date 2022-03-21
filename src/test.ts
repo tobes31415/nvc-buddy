@@ -13,7 +13,7 @@ const lookupSvc: NvcTaggerService = DI.resolve(NvcTaggerService);
     tagsSection.innerHTML = tags
       .map((tag) => {
         console.log(tag);
-        const parts = tag.guess.split(":");
+        const parts = tag.fullGuess.split(":");
         const confidence =
           tag.confidence >= 1
             ? "confirmed"
@@ -26,7 +26,7 @@ const lookupSvc: NvcTaggerService = DI.resolve(NvcTaggerService);
           parts[0]
         }" data-confidence="${confidence}" data-num-confidence="${
           tag.confidence
-        }" data-match="${tag.match}" title="${tag.guess}">${parts.at(
+        }" data-match="${tag.match}" title="${tag.fullGuess}">${parts.at(
           -1
         )}</nvc-word>`;
       })

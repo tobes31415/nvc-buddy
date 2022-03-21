@@ -2,11 +2,12 @@ import lookup from "../static/lookup.json";
 import { byProp, inverse } from "../util";
 
 const COMMON_SUFFIXES =
-  "acy|al|ance|ence|dom|er|or|ied|ism|ist|ity|ment|ness|ed|ers|ship|sion|tion|ate|en|ify|fy|ize|ise|able|ible|al|esque|ful|ic|ical|ious|ous|ish|ive|less|y|s";
+  "acy|al|ance|ence|dom|er|or|ied|ism|ist|ity|ment|ness|ed|ers|ship|sion|tion|ate|en|ify|fy|ize|ise|able|ible|al|esque|ful|ic|ical|ious|ous|ish|ive|less|y|s|d";
 
 interface Tag {
   match: string[];
-  guess: string;
+  fullGuess: string;
+  leafWord: string;
   confidence: number;
 }
 
@@ -25,7 +26,8 @@ export class NvcTaggerService {
           tags.forEach((tag) => {
             preliminary.push({
               match: [key],
-              guess: tag,
+              fullGuess: tag,
+              leafWord: tag.substring(tag.lastIndexOf(":") + 1),
               confidence: DIRECT_CONFIDENCE / tags.length,
             });
           });
@@ -42,7 +44,8 @@ export class NvcTaggerService {
           tags.forEach((tag) => {
             preliminary.push({
               match: [key],
-              guess: tag,
+              fullGuess: tag,
+              leafWord: tag.substring(tag.lastIndexOf(":") + 1),
               confidence: INDIRECT_CONFIENCE / tags.length,
             });
           });
@@ -52,7 +55,7 @@ export class NvcTaggerService {
     preliminary.sort(inverse(byProp("confidence", byProp("guess"))));
     const result: Tag[] = [];
     preliminary.forEach((tag) => {
-      const alreadyIncluded = result.find((t) => t.guess === tag.guess);
+      const alreadyIncluded = result.find((t) => t.leafWord === tag.leafWord);
       if (alreadyIncluded) {
         alreadyIncluded.match.push(...tag.match);
         alreadyIncluded.confidence += tag.confidence;

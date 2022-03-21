@@ -21,6 +21,34 @@ function listFiles(folderPath) {
     .filter((path) => fs.statSync(path).isFile());
 }
 
+const typicalSuffixes =
+  "acy|al|ance|ence|dom|er|or|ied|ing|ism|ist|ity|ment|ness|ed|ers|ship|sion|tion|ate|en|ify|fy|ize|ise|able|ible|al|esque|ful|ic|ical|ious|ous|ish|ive|less|y|s|d|e".split(
+    "|"
+  );
+function expandEndings(listOfWords, fullDictionary) {
+  const result = new Set();
+  listOfWords.forEach((word) => {
+    typicalSuffixes.forEach((suffix) => {
+      if (word.endsWith(suffix)) {
+        //console.log("found common suffix", suffix);
+        const prefix = word.slice(0, word.length - suffix.length);
+        typicalSuffixes.forEach((s2) => {
+          const expandedWord = prefix + s2;
+          if (fullDictionary.has(expandedWord)) {
+            //console.log(expandedWord, "is a word");
+            result.add(expandedWord);
+          } else {
+            //console.log(expandedWord, "not a word");
+          }
+        });
+      } else {
+        result.add(word);
+      }
+    });
+  });
+  return Array.from(result);
+}
+
 function readDictionaryDirectory(folderPath) {
   // English Dictionary was found here, it's big ~30Mb
   // https://uc9c16915d1918ee4ee5b09732e6.dl.dropboxusercontent.com/cd/0/get/Bhsa1MnlVaKIdB0hX9ssflW3Gug_3dtu446lMJM4_QbW-R_VijxWDb7-Dcgvi6KZRdP56zJOz4KkA7ud1aBA2SoPThJBmc6JOjs4B61MSBICzD8n3dafTM4G5dBe_MhcCzRQxY27dDEdR5EALzA1nOiAtf34i-h90hQSgQd4dSpiXw/file?dl=1#
@@ -39,6 +67,9 @@ function readDictionaryDirectory(folderPath) {
         const lsyn = syn.toLowerCase();
         if (!target.includes(lsyn)) {
           target.push(lsyn);
+        }
+        if (!result.has(lsyn)) {
+          addWord(lsyn, synonyms);
         }
       });
     }
@@ -89,6 +120,12 @@ function findSynonyms(listOfWords, fullDictionary) {
     if (!listResults[word].includes(word)) {
       listResults[word].push(word);
     }
+
+    expandEndings([word], fullDictionary).forEach((expandedWord) => {
+      if (!listResults[word].includes(expandedWord)) {
+        listResults[word].push(expandedWord);
+      }
+    });
   });
   return listResults;
 }
@@ -141,7 +178,6 @@ function mapClues(nvcWords, rotated, fullDictionary) {
       });
     });
   });
-  console.log(result);
   return result;
 }
 
@@ -152,9 +188,10 @@ function init() {
   const rotated = rotateDictionaryRecursive(finalData);
   const clues = mapClues(nvcWords, rotated, fullDictionary);
 
+  console.log(expandEndings(["intrigued"], fullDictionary));
   const fullLookup = { direct: rotated, indirect: clues };
 
-  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(fullLookup));
-  writeFile(OUTPUT_NVC_FILE, JSON.stringify(nvcWords));
+  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(fullLookup, undefined, 1));
+  writeFile(OUTPUT_NVC_FILE, JSON.stringify(nvcWords, undefined, 2));
 }
 init();

@@ -1,1 +1,469 @@
-{"feelings":{"friendly":["affectionate","compassionate","open hearted","tender","warm"],"confident":["empowered","open","proud","safe","secure"],"engaged":["absorbed","alert","curious","fascinated","interested","intriguied","stimulated"],"excited":["amazed","animated","ardent","astonished","eager","energetic","enthusiastic","giddy","invigorated","lively","passionate","surprised"],"grateful":["appreciative","moved","thankful","touched"],"hopeful":["expectant","encouraged","optimistic"],"pleased":["amused","delighted","glad","happy","joyful","jubilant","proud"],"inspired":["amazed","awed","wonder"],"comfortable":["calm","centered","content","fulfilled","mellow","peaceful","quiet","relaxed","satisfied","trusting"],"refreshed":["enlivened","rejuvenated","renewed","rested","restored","revived"],"afraid":["apprehensive","frightened","mistrustful","panicked","scared","suspicious","terrified","worried"],"annoyed":["aggravated","dismayed","displeased","exasperated","frustrated","impatient","irritated","irked"],"angry":["enraged","furious","incensed","mad","pissed","ticked off"],"confused":["ambivalent","bewildered","daed","hesitant","lost","mystified","perplexed","torn"],"disconnected":["aloof","apathetic","bored","cold","detached","distant","distracted","indifferent","numb","removed","uninterested"],"hostile":["animosity","contempt","disgust","dislike","hate","horrified","repulsed"],"pain":["agony","bereaved","devastated","grief stricken","grieved","heartbroken","hurt","lonely","miserable","regretful","remorseful"],"sad":["depressed","gloomy","heavy hearted","hopeless","melancholy","unhappy","wretched"],"tense":["anxious","cranky","distressed","distraught","edgy","frazzled","irritable","nervous","overwhelmed","restless","stressed out"],"embarrassed":["guilty","flustered"],"uncomfortable":["agitated","alarmed","disturbed","rattled","restless","shocked","startled","surprised","troubled","uneasy","unsettled","upset"],"vulnerable":["fragile","guarded","helpless","insecure","reserved","sensitive"],"tired":["depleted"]},"needs":{"belonging":["affection","bonding","caring","connection","cooperation","community","companionship","emotional safety","mutuality","participation","respect","stability","support","warmth"],"communication":["to hear others","to be heard","to be understood","compassion","empathy","reassurance"],"contribution":["to the well being of others","healing","nurturing","teaching"],"understanding":["awareness","clarity","guidance","information","learning","mastery","reflection"],"physical well being":["air","food","water","shelter","hungry","thirsty","tired","comfort","safety","security","movement","excercise","rest","relaxation","space"],"purpose":["accomplishment","contribution","creativity","effectiveness","hope","inspiration","meaning","vision"],"independence":["autonomy","choice","goals","values","realization","freedom","spontaneity"],"self worth":["authenticity","effectiveness","honesty","integrity","self respect","sense one matters"],"recognition":["that one's being is of value","consideration","fairness","inclusion","to know others and be known","to see others and be seen"],"trust":["acceptance","appreciation","consistency","security"],"stimulation":["challenge","discovery","excitement","growth","intensity","passion","play"],"harmony":["beauty","delight","comfort","ease","equality","grace","humour","order","peace","pleasure"],"celebration/mourning":["celebration","mourning","grieving"]},"observations":{},"thoughts":["abandoned","abused","attacked","betrayed","boxed in","bullied","cheated","coerced","cornered","diminished","distrusted","interrupted","intimidated","let down","manipulated","misunderstood","beglected","overworked","patronized","pressured","provoked","put down","rejected","taken for granted","threatened","unappreciated","unheard","unseen","unsupported","unwanted","used","often","always","never","too much","aggressive","complains","made me"],"clues":[{"feeling":["angry","annoyed","frustrated"],"response":["dispute","passive aggressive","insult","quarrel","scream","yell","simmer","brood","suppress","hit","struck","punched","slapped","undermine"]},{"feeling":["nervous","anxious","horrified","terrified"],"response":["avoid","freeze","hesitate","ruminate","scream","yell","withdraw","worry"]},{"feeling":["dislike","repulsed"],"response":["avoid","dehumanize","vomit","puke","nautious","withdraw"]},{"feeling":["sad","helpless","hopeless","miserable"],"response":["ashamed","mourn","protest","ruminate","comfort","withdraw"]},{"feeling":["pleased","joyful","peace","relaxed","wonder","excited"],"response":["exclaim","connect","engage","gloat","indulge","maintain","savor","seek"]}]}
+{
+  "feelings": {
+    "friendly": [
+      "affectionate",
+      "compassionate",
+      "open hearted",
+      "tender",
+      "warm"
+    ],
+    "confident": [
+      "empowered",
+      "open",
+      "proud",
+      "safe",
+      "secure"
+    ],
+    "engaged": [
+      "absorbed",
+      "alert",
+      "curious",
+      "fascinated",
+      "interested",
+      "intriguied",
+      "stimulated"
+    ],
+    "excited": [
+      "amazed",
+      "animated",
+      "ardent",
+      "astonished",
+      "eager",
+      "energetic",
+      "enthusiastic",
+      "giddy",
+      "invigorated",
+      "lively",
+      "passionate",
+      "surprised"
+    ],
+    "grateful": [
+      "appreciative",
+      "moved",
+      "thankful",
+      "touched"
+    ],
+    "hopeful": [
+      "expectant",
+      "encouraged",
+      "optimistic"
+    ],
+    "pleased": [
+      "amused",
+      "delighted",
+      "glad",
+      "happy",
+      "joyful",
+      "jubilant",
+      "proud"
+    ],
+    "inspired": [
+      "amazed",
+      "awed",
+      "wonder"
+    ],
+    "comfortable": [
+      "calm",
+      "centered",
+      "content",
+      "fulfilled",
+      "mellow",
+      "peaceful",
+      "quiet",
+      "relaxed",
+      "satisfied",
+      "trusting"
+    ],
+    "refreshed": [
+      "enlivened",
+      "rejuvenated",
+      "renewed",
+      "rested",
+      "restored",
+      "revived"
+    ],
+    "afraid": [
+      "apprehensive",
+      "frightened",
+      "mistrustful",
+      "panicked",
+      "scared",
+      "suspicious",
+      "terrified",
+      "worried"
+    ],
+    "annoyed": [
+      "aggravated",
+      "dismayed",
+      "displeased",
+      "exasperated",
+      "frustrated",
+      "impatient",
+      "irritated",
+      "irked"
+    ],
+    "angry": [
+      "enraged",
+      "furious",
+      "incensed",
+      "mad",
+      "pissed",
+      "ticked off"
+    ],
+    "confused": [
+      "ambivalent",
+      "bewildered",
+      "dazed",
+      "hesitant",
+      "lost",
+      "mystified",
+      "perplexed",
+      "torn"
+    ],
+    "disconnected": [
+      "aloof",
+      "apathetic",
+      "bored",
+      "cold",
+      "detached",
+      "distant",
+      "distracted",
+      "indifferent",
+      "numb",
+      "removed",
+      "uninterested"
+    ],
+    "hostile": [
+      "animosity",
+      "contempt",
+      "disgust",
+      "dislike",
+      "hate",
+      "horrified",
+      "repulsed"
+    ],
+    "pain": [
+      "agony",
+      "bereaved",
+      "devastated",
+      "grief stricken",
+      "grieved",
+      "heartbroken",
+      "hurt",
+      "lonely",
+      "miserable",
+      "regretful",
+      "remorseful"
+    ],
+    "sad": [
+      "depressed",
+      "gloomy",
+      "heavy hearted",
+      "hopeless",
+      "melancholy",
+      "unhappy",
+      "wretched"
+    ],
+    "tense": [
+      "anxious",
+      "cranky",
+      "distressed",
+      "distraught",
+      "edgy",
+      "frazzled",
+      "irritable",
+      "nervous",
+      "overwhelmed",
+      "restless",
+      "stressed out"
+    ],
+    "embarrassed": [
+      "guilty",
+      "flustered"
+    ],
+    "uncomfortable": [
+      "agitated",
+      "alarmed",
+      "disturbed",
+      "rattled",
+      "restless",
+      "shocked",
+      "startled",
+      "surprised",
+      "troubled",
+      "uneasy",
+      "unsettled",
+      "upset"
+    ],
+    "vulnerable": [
+      "fragile",
+      "guarded",
+      "helpless",
+      "insecure",
+      "reserved",
+      "sensitive"
+    ],
+    "tired": [
+      "depleted"
+    ]
+  },
+  "needs": {
+    "belonging": [
+      "affection",
+      "bonding",
+      "caring",
+      "connection",
+      "cooperation",
+      "community",
+      "companionship",
+      "emotional safety",
+      "mutuality",
+      "participation",
+      "respect",
+      "stability",
+      "support",
+      "warmth"
+    ],
+    "communication": [
+      "to hear others",
+      "to be heard",
+      "to be understood",
+      "compassion",
+      "empathy",
+      "reassurance"
+    ],
+    "contribution": [
+      "to the well being of others",
+      "healing",
+      "nurturing",
+      "teaching"
+    ],
+    "understanding": [
+      "awareness",
+      "clarity",
+      "guidance",
+      "information",
+      "learning",
+      "mastery",
+      "reflection"
+    ],
+    "physical well being": [
+      "air",
+      "food",
+      "water",
+      "shelter",
+      "hungry",
+      "thirsty",
+      "tired",
+      "comfort",
+      "safety",
+      "security",
+      "movement",
+      "excercise",
+      "rest",
+      "relaxation",
+      "space"
+    ],
+    "purpose": [
+      "accomplishment",
+      "contribution",
+      "creativity",
+      "effectiveness",
+      "hope",
+      "inspiration",
+      "meaning",
+      "vision"
+    ],
+    "independence": [
+      "autonomy",
+      "choice",
+      "goals",
+      "values",
+      "realization",
+      "freedom",
+      "spontaneity"
+    ],
+    "self worth": [
+      "authenticity",
+      "effectiveness",
+      "honesty",
+      "integrity",
+      "self respect",
+      "sense one matters"
+    ],
+    "recognition": [
+      "that one's being is of value",
+      "consideration",
+      "fairness",
+      "inclusion",
+      "to know others and be known",
+      "to see others and be seen"
+    ],
+    "trust": [
+      "acceptance",
+      "appreciation",
+      "consistency",
+      "security"
+    ],
+    "stimulation": [
+      "challenge",
+      "discovery",
+      "excitement",
+      "growth",
+      "intensity",
+      "passion",
+      "play"
+    ],
+    "harmony": [
+      "beauty",
+      "delight",
+      "comfort",
+      "ease",
+      "equality",
+      "grace",
+      "humour",
+      "order",
+      "peace",
+      "pleasure"
+    ],
+    "celebration/mourning": [
+      "celebration",
+      "mourning",
+      "grieving"
+    ]
+  },
+  "observations": {},
+  "thoughts": [
+    "abandoned",
+    "abused",
+    "attacked",
+    "betrayed",
+    "boxed in",
+    "bullied",
+    "cheated",
+    "coerced",
+    "cornered",
+    "diminished",
+    "distrusted",
+    "interrupted",
+    "intimidated",
+    "let down",
+    "manipulated",
+    "misunderstood",
+    "beglected",
+    "overworked",
+    "patronized",
+    "pressured",
+    "provoked",
+    "put down",
+    "rejected",
+    "taken for granted",
+    "threatened",
+    "unappreciated",
+    "unheard",
+    "unseen",
+    "unsupported",
+    "unwanted",
+    "used",
+    "often",
+    "always",
+    "never",
+    "too much",
+    "aggressive",
+    "complains",
+    "made me"
+  ],
+  "clues": [
+    {
+      "feeling": [
+        "angry",
+        "annoyed",
+        "frustrated"
+      ],
+      "response": [
+        "dispute",
+        "passive aggressive",
+        "insult",
+        "quarrel",
+        "scream",
+        "yell",
+        "simmer",
+        "brood",
+        "suppress",
+        "hit",
+        "struck",
+        "punched",
+        "slapped",
+        "undermine"
+      ]
+    },
+    {
+      "feeling": [
+        "nervous",
+        "anxious",
+        "horrified",
+        "terrified"
+      ],
+      "response": [
+        "avoid",
+        "freeze",
+        "hesitate",
+        "ruminate",
+        "scream",
+        "yell",
+        "withdraw",
+        "worry"
+      ]
+    },
+    {
+      "feeling": [
+        "dislike",
+        "repulsed"
+      ],
+      "response": [
+        "avoid",
+        "dehumanize",
+        "vomit",
+        "puke",
+        "nautious",
+        "withdraw"
+      ]
+    },
+    {
+      "feeling": [
+        "sad",
+        "helpless",
+        "hopeless",
+        "miserable"
+      ],
+      "response": [
+        "ashamed",
+        "mourn",
+        "protest",
+        "ruminate",
+        "comfort",
+        "withdraw"
+      ]
+    },
+    {
+      "feeling": [
+        "pleased",
+        "joyful",
+        "peace",
+        "relaxed",
+        "wonder",
+        "excited"
+      ],
+      "response": [
+        "exclaim",
+        "connect",
+        "engage",
+        "gloat",
+        "indulge",
+        "maintain",
+        "savor",
+        "seek"
+      ]
+    }
+  ]
+}
