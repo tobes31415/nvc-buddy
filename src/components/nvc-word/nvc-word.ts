@@ -44,7 +44,10 @@ export class NvcWord extends HTMLElement {
     this.setAttribute("data-num-confidence", "" + tag.confidence);
     this.setAttribute("data-match", tag.match.join(","));
     this.setAttribute("title", tag.fullGuess);
-    this.#label.textContent = tag.leafWord;
+
+    const label = this.getAttribute("data-show") || tag.leafWord;
+
+    this.#label.textContent = label;
     this.removeAttribute("data-tag");
   }
 }

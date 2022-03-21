@@ -8,13 +8,21 @@ const lookupSvc: NvcTaggerService = DI.resolve(NvcTaggerService);
   const tagsSection =
     document.querySelector<HTMLDivElement>("#tags") || undefined;
   const userInput = document.querySelector<HTMLTextAreaElement>("#userText");
-  if (tagsSection && userInput) {
-    const tags = lookupSvc.tag(userInput.value);
+  const taggedTextSection =
+    document.querySelector<HTMLDivElement>("#taggedText");
+  if (tagsSection && userInput && taggedTextSection) {
+    const usersText = userInput.value;
+    const tags = lookupSvc.tag(usersText);
     tagsSection.innerHTML = tags
       .map((tag) => {
         return `<nvc-word data-tag='${JSON.stringify(tag)}'></nvc-word>`;
       })
       .join(" ");
+
+    taggedTextSection.setAttribute("data-text", usersText);
+    taggedTextSection.setAttribute("data-tags", JSON.stringify(tags));
+  } else {
+    console.error("Missing required target");
   }
 };
 
