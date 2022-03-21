@@ -66,7 +66,6 @@ export class NvcText extends HTMLElement {
     const temp2 = document.createElement("div");
     temp2.innerHTML = text;
     tempFragment.appendChild(temp2);
-    console.log(text);
 
     this.#shadow.replaceChildren(tempFragment);
   }
