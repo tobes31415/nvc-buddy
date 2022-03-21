@@ -181,6 +181,20 @@ function mapClues(nvcWords, rotated, fullDictionary) {
   return result;
 }
 
+function compress(mapOfWords, lookup) {
+  const result = {};
+  Object.entries(mapOfWords).forEach(([word, tags]) => {
+    const altTags = tags.map((tag) => {
+      if (!lookup.includes(tag)) {
+        lookup.push(tag);
+      }
+      return lookup.indexOf(tag);
+    });
+    result[word] = altTags;
+  });
+  return result;
+}
+
 function init() {
   const fullDictionary = readDictionaryDirectory(DEFAULT_DICTIONARY);
   const nvcWords = readNVCWords(DEFAULT_WORDS);
@@ -189,9 +203,15 @@ function init() {
   const clues = mapClues(nvcWords, rotated, fullDictionary);
 
   console.log(expandEndings(["intrigued"], fullDictionary));
-  const fullLookup = { direct: rotated, indirect: clues };
+  const lookup = [];
 
-  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(fullLookup, undefined, 1));
+  const fullLookup = {
+    lookup,
+    direct: compress(rotated, lookup),
+    indirect: compress(clues, lookup),
+  };
+
+  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(fullLookup, undefined, 0));
   writeFile(OUTPUT_NVC_FILE, JSON.stringify(nvcWords, undefined, 2));
 }
 init();

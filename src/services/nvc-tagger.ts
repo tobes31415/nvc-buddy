@@ -1,4 +1,4 @@
-import lookup from "../static/lookup.json";
+import { lookup, direct, indirect } from "../static/lookup.json";
 import { byProp, inverse } from "../util";
 
 const COMMON_SUFFIXES =
@@ -17,17 +17,18 @@ export class NvcTaggerService {
   public tag(text: string): Tag[] {
     const ltext = text.toLowerCase();
     const preliminary: Tag[] = [];
-    Object.entries(lookup.direct).forEach(([key, tags]) => {
+    Object.entries(direct).forEach(([key, tags]) => {
       if (ltext.includes(key)) {
         const rgx = new RegExp(
           "(^|[^\\w])" + key + "(" + COMMON_SUFFIXES + ")?([^\\w]|$)"
         );
         if (rgx.test(ltext)) {
           tags.forEach((tag) => {
+            const strTag = lookup[tag];
             preliminary.push({
               match: [key],
-              fullGuess: tag,
-              leafWord: tag.substring(tag.lastIndexOf(":") + 1),
+              fullGuess: strTag,
+              leafWord: strTag.substring(strTag.lastIndexOf(":") + 1),
               confidence: DIRECT_CONFIDENCE / tags.length,
             });
           });
@@ -35,17 +36,18 @@ export class NvcTaggerService {
       }
     });
 
-    Object.entries(lookup.indirect).forEach(([key, tags]) => {
+    Object.entries(indirect).forEach(([key, tags]) => {
       if (ltext.includes(key)) {
         const rgx = new RegExp(
           "(^|[^\\w])" + key + "(" + COMMON_SUFFIXES + ")?([^\\w]|$)"
         );
         if (rgx.test(ltext)) {
           tags.forEach((tag) => {
+            const strTag = lookup[tag];
             preliminary.push({
               match: [key],
-              fullGuess: tag,
-              leafWord: tag.substring(tag.lastIndexOf(":") + 1),
+              fullGuess: strTag,
+              leafWord: strTag.substring(strTag.lastIndexOf(":") + 1),
               confidence: INDIRECT_CONFIENCE / tags.length,
             });
           });
