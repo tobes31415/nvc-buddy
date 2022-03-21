@@ -1,7 +1,7 @@
 import { DI } from "@tobes31415/dependency-injection";
 import { NvcTaggerService } from "./services/nvc-tagger";
 
-const lookupSvc = DI.resolve(NvcTaggerService);
+const lookupSvc: NvcTaggerService = DI.resolve(NvcTaggerService);
 (globalThis as any).lookupSvc = lookupSvc;
 
 (globalThis as any).updateTags = () => {
@@ -9,7 +9,28 @@ const lookupSvc = DI.resolve(NvcTaggerService);
     document.querySelector<HTMLDivElement>("#tags") || undefined;
   const userInput = document.querySelector<HTMLTextAreaElement>("#userText");
   if (tagsSection && userInput) {
-    tagsSection.innerHTML = lookupSvc.tag(userInput.value);
+    const tags = lookupSvc.tag(userInput.value);
+    tagsSection.innerHTML = tags
+      .map((tag) => {
+        console.log(tag);
+        const parts = tag.guess.split(":");
+        const confidence =
+          tag.confidence >= 1
+            ? "confirmed"
+            : tag.confidence > 0.6
+            ? "high"
+            : tag.confidence < 0.3
+            ? "low"
+            : "medium";
+        return `<nvc-word data-type="${
+          parts[0]
+        }" data-confidence="${confidence}" data-num-confidence="${
+          tag.confidence
+        }" data-match="${tag.match}" title="${tag.guess}">${parts.at(
+          -1
+        )}</nvc-word>`;
+      })
+      .join(" ");
   }
 };
 

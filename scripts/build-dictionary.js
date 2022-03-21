@@ -121,12 +121,40 @@ function rotateDictionaryRecursive(node, result = {}, prefix = "") {
   return result;
 }
 
+function mapClues(nvcWords, rotated, fullDictionary) {
+  const clues = nvcWords.clues;
+  const result = {};
+  clues.forEach((clueCategory) => {
+    const tags = [];
+    clueCategory.feeling.forEach((feeling) => tags.push(...rotated[feeling]));
+    clueCategory.response.forEach((response) => {
+      const synonyms = fullDictionary.get(response) || [response];
+      synonyms.forEach((syn) => {
+        if (!result[syn]) {
+          result[syn] = [];
+        }
+        tags.forEach((tag) => {
+          if (!result[syn].includes(tag)) {
+            result[syn].push(tag);
+          }
+        });
+      });
+    });
+  });
+  console.log(result);
+  return result;
+}
+
 function init() {
   const fullDictionary = readDictionaryDirectory(DEFAULT_DICTIONARY);
   const nvcWords = readNVCWords(DEFAULT_WORDS);
   const finalData = mapSynonyms(nvcWords, fullDictionary);
   const rotated = rotateDictionaryRecursive(finalData);
-  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(rotated));
+  const clues = mapClues(nvcWords, rotated, fullDictionary);
+
+  const fullLookup = { direct: rotated, indirect: clues };
+
+  writeFile(OUTPUT_LOOKUP_FILE, JSON.stringify(fullLookup));
   writeFile(OUTPUT_NVC_FILE, JSON.stringify(nvcWords));
 }
 init();

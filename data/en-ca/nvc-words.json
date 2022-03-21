@@ -121,6 +121,7 @@
       "bereaved",
       "devastated",
       "grief stricken",
+      "grieved",
       "heartbroken",
       "hurt",
       "lonely",
@@ -330,7 +331,75 @@
     "too much",
     "aggressive",
     "complains",
-    "it made me",
     "made me"
+  ],
+  "clues": [
+    {
+      "feeling": ["angry", "annoyed", "frustrated"],
+      "response": [
+        "dispute",
+        "passive aggressive",
+        "insult",
+        "quarrel",
+        "scream",
+        "yell",
+        "simmer",
+        "brood",
+        "suppress",
+        "hit",
+        "struck",
+        "punched",
+        "slapped",
+        "undermine"
+      ]
+    },
+    {
+      "feeling": ["nervous", "anxious", "horrified", "terrified"],
+      "response": [
+        "avoid",
+        "freeze",
+        "hesitate",
+        "ruminate",
+        "scream",
+        "yell",
+        "withdraw",
+        "worry"
+      ]
+    },
+    {
+      "feeling": ["dislike", "repulsed"],
+      "response": [
+        "avoid",
+        "dehumanize",
+        "vomit",
+        "puke",
+        "nautious",
+        "withdraw"
+      ]
+    },
+    {
+      "feeling": ["sad", "helpless", "hopeless", "miserable"],
+      "response": [
+        "ashamed",
+        "mourn",
+        "protest",
+        "ruminate",
+        "comfort",
+        "withdraw"
+      ]
+    },
+    {
+      "feeling": ["pleased", "joyful", "peace", "relaxed", "wonder", "excited"],
+      "response": [
+        "exclaim",
+        "connect",
+        "engage",
+        "gloat",
+        "indulge",
+        "maintain",
+        "savor",
+        "seek"
+      ]
+    }
   ]
 }

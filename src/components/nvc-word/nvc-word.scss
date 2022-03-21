@@ -1,0 +1,32 @@
+:host {
+  display: inline-block;
+  border-radius: 10px;
+  padding: var(--small-padding);
+  background-color: var(--colors-none);
+  opacity: 0.1;
+}
+:host([data-confidence="confirmed"]) {
+  opacity: 1;
+}
+:host([data-confidence="high"]) {
+  opacity: 0.7;
+}
+:host([data-confidence="medium"]) {
+  opacity: 0.5;
+}
+:host([data-confidence="low"]) {
+  opacity: 0.3;
+}
+
+:host([data-type="thoughts"]) {
+  background-color: var(--colors-thoughts);
+  color: var(--colors-thoughts-text);
+}
+:host([data-type="feelings"]) {
+  background-color: var(--colors-feelings);
+  color: var(--colors-feelings-text);
+}
+:host([data-type="needs"]) {
+  background-color: var(--colors-needs);
+  color: var(--colors-needs-text);
+}

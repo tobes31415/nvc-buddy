@@ -1,0 +1,33 @@
+$colors-thoughts: red;
+$colors-needs: green;
+$colors-feelings: blue;
+$lightnessThreshold: 25%;
+$colors-text-light: white;
+$colors-text-dark: black;
+
+@function constrast-color($color, $dark, $light) {
+  @return if(lightness($color) < $lightnessThreshold, $light, $dark);
+}
+
+:root {
+  --small-padding: 4px;
+  --colors-none: hotpink;
+  --colors-thoughts: #{$colors-thoughts};
+  --colors-thoughts-text: #{constrast-color(
+      $colors-thoughts,
+      $colors-text-light,
+      $colors-text-dark
+    )};
+  --colors-feelings: #{$colors-feelings};
+  --colors-feelings-text: #{constrast-color(
+      $colors-feelings,
+      $colors-text-light,
+      $colors-text-dark
+    )};
+  --colors-needs: #{$colors-needs};
+  --colors-needs-text: #{constrast-color(
+      $colors-needs,
+      $colors-text-light,
+      $colors-text-dark
+    )};
+}
