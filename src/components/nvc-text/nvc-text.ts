@@ -76,7 +76,7 @@ export class NvcText extends HTMLElement {
   }
 
   attributeChangedCallback() {
-    this.#extractAttributes();
+    setTimeout(() => this.#extractAttributes());
   }
 }
 customElements.define("nvc-text", NvcText);
