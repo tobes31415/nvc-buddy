@@ -4,7 +4,7 @@ import { byProp, inverse } from "../util";
 const COMMON_SUFFIXES =
   "acy|al|ance|ence|dom|er|or|ied|ism|ist|ity|ment|ness|ed|ers|ship|sion|tion|ate|en|ify|fy|ize|ise|able|ible|al|esque|ful|ic|ical|ious|ous|ish|ive|less|y|s|d";
 
-interface Tag {
+export interface Tag {
   match: string[];
   fullGuess: string;
   leafWord: string;

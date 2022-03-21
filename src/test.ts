@@ -12,23 +12,7 @@ const lookupSvc: NvcTaggerService = DI.resolve(NvcTaggerService);
     const tags = lookupSvc.tag(userInput.value);
     tagsSection.innerHTML = tags
       .map((tag) => {
-        console.log(tag);
-        const parts = tag.fullGuess.split(":");
-        const confidence =
-          tag.confidence >= 1
-            ? "confirmed"
-            : tag.confidence > 0.6
-            ? "high"
-            : tag.confidence < 0.3
-            ? "low"
-            : "medium";
-        return `<nvc-word data-type="${
-          parts[0]
-        }" data-confidence="${confidence}" data-num-confidence="${
-          tag.confidence
-        }" data-match="${tag.match}" title="${tag.fullGuess}">${parts.at(
-          -1
-        )}</nvc-word>`;
+        return `<nvc-word data-tag='${JSON.stringify(tag)}'></nvc-word>`;
       })
       .join(" ");
   }
