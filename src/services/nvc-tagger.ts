@@ -20,13 +20,15 @@ export class NvcTaggerService {
     Object.entries(direct).forEach(([key, tags]) => {
       if (ltext.includes(key)) {
         const rgx = new RegExp(
-          "(^|[^\\w])" + key + "(" + COMMON_SUFFIXES + ")?([^\\w]|$)"
+          "(^|[^\\w])(" + key + ")(" + COMMON_SUFFIXES + ")?([^\\w]|$)"
         );
-        if (rgx.test(ltext)) {
+        const fullMatch = rgx.exec(ltext);
+        if (fullMatch) {
+          const fullKey = fullMatch[2] + (fullMatch[3] || "");
           tags.forEach((tag) => {
             const strTag = lookup[tag];
             preliminary.push({
-              match: [key],
+              match: [fullKey],
               fullGuess: strTag,
               leafWord: strTag.substring(strTag.lastIndexOf(":") + 1),
               confidence: DIRECT_CONFIDENCE / tags.length,
